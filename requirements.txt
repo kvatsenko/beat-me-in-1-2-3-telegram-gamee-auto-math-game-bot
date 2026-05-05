@@ -1,0 +1,9 @@
+mss
+numpy
+opencv-python
+pyobjc-core
+pyobjc-framework-Vision
+pyobjc-framework-Quartz
+pyobjc-framework-Cocoa
+pyautogui
+pynput
