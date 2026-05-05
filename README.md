@@ -6,42 +6,98 @@ The bot was built for a game where the user has to solve simple equations and ch
 
 ## Demo
 
-### OCR Input
+![Detection preview](debug_full_detection.png)
 
-This is the cropped and preprocessed equation image that the bot sends to OCR.
+[▶ Watch demo video](video_demo.mp4)
 
-![OCR input](debug_capture.png)
+## What the Bot Detects
 
-### Screen Detection
-
-This debug image shows how the bot detects the game interface.
-
-![Full detection](debug_full_detection.png)
-
-In this image:
+The debug preview shows the main computer vision steps:
 
 - blue rectangle — detected game area;
 - green rectangle — detected equation area;
 - red dots — detected answer button centers.
 
-### Video Demo
+## OCR Input
 
-You can add a demonstration video showing how the bot works in real time.
+The bot also saves the cropped and preprocessed equation image that is sent to OCR:
 
-Place your video file in the project folder, for example:
+![OCR input](debug_capture.png)
+
+## How It Works
+
+The script captures the screen, finds the game interface, crops the equation, reads it with OCR, solves it, and clicks the correct answer button.
 
 ```text
-video_demo.mp4
+Screen capture
+    ↓
+Game area detection
+    ↓
+Equation crop
+    ↓
+OCR recognition
+    ↓
+Equation solving
+    ↓
+Automatic click
 ```
 
-Then you have two options:
+## Features
 
-**1. Embed video (works in some Markdown viewers):**
+- automatic game screen detection;
+- equation area detection;
+- answer button detection;
+- OCR-based equation recognition;
+- automatic answer clicking;
+- debug image generation;
+- stop hotkeys: `E` and `Esc`.
 
-```html
-<video src="video_demo.mp4" controls width="700"></video>
+## Requirements
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
-**2. Add a simple link (recommended for GitHub):**
+## macOS Permissions
 
-[Watch demo video](video_demo.mp4)
+The script needs permission to capture the screen, listen to keyboard input, and control the mouse.
+
+Enable permissions for Terminal, VS Code, or the app you use to run the script:
+
+```text
+System Settings → Privacy & Security → Accessibility
+```
+
+You may also need to enable:
+
+```text
+System Settings → Privacy & Security → Screen Recording
+```
+
+## Run
+
+```bash
+python test.py
+```
+
+## Stop
+
+Press:
+
+```text
+E
+```
+
+or:
+
+```text
+Esc
+```
+
+## Notes
+
+This bot is tuned for the "Beat me in 1+2=3" Telegram game by Gamee. If the game design changes, the color thresholds or detection rules may need adjustment.
+
+The bot uses `pyautogui`, so it moves the real mouse cursor to click the answer.
