@@ -6,9 +6,9 @@ The bot was built for a game where the user has to solve simple equations and ch
 
 ## Demo
 
-![Detection preview](debug_full_detection.png)
+![Demo](demo_gif.gif)
 
-[▶ Watch demo video](video_demo.mp4)
+![Detection preview](debug_full_detection.png)
 
 ## What the Bot Detects
 
